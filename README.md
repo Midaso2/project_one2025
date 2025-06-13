@@ -1,84 +1,159 @@
+
+# Retail Sales Data Analysis
 <img alt="CI logo" src="https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png">
+---
 
-# Data Analytics with AI: Python ETL and Visualisation
+## Dataset Content
 
-## Project Overview
+This project uses the [Retail Sales Dataset](https://www.kaggle.com/datasets/manjeetsingh/retaildataset), which contains historical weekly sales data for 45 stores across different regions in the US. The dataset includes:
+- Store information (type, size, region)
+- Weekly sales by department and store
+- Features such as holidays, promotional markdowns, temperature, fuel price, CPI, and unemployment
 
-This project analyses retail sales data from 45 stores across different regions. The aim is to identify sales trends, understand the impact of promotional markdowns and holidays, and compare store performance. The insights will help retail managers and analysts make data-driven decisions.
-
-**Data Source:**  
-[Retail Sales Dataset on Kaggle](https://www.kaggle.com/datasets/manjeetsingh/retaildataset)
+All files are under 100MB and suitable for GitHub repository storage.
 
 ---
 
-## Project Steps
+## Business Requirements
 
-### 1. Ideation & Project Proposal
-- **What:** The project focuses on analysing historical sales data to uncover trends and the effects of promotions and holidays.
-- **Why:** Retailers need to understand how events and markdowns affect sales to optimise inventory and marketing strategies.
-- **How:** I chose this project because it aligns with my interest in retail analytics and my goal to become a data analyst.
-
-### 2. Data Extraction (ETL - Extract)
-- **What:** Loaded three CSV files: `stores_data.csv`, `features_data.csv`, and `sales_data.csv`.
-- **Why:** These files contain all the necessary information about stores, weekly sales, and additional features like markdowns and holidays.
-- **How:** Used `pandas.read_csv()` to import the datasets into DataFrames for analysis.
-
-### 3. Data Cleaning & Transformation (ETL - Transform)
-- **What:** Checked for missing values, converted date columns, and ensured correct data types.
-- **Why:** Clean data is essential for accurate analysis and visualisation.
-- **How:** Filled missing values with zeros, converted `Date` columns to datetime, and created a holiday flag for analysis.
-
-### 4. Data Loading (ETL - Load)
-- **What:** Stored the cleaned and transformed data in DataFrames and saved them as new CSV files.
-- **Why:** This ensures the data is ready for analysis and can be reused or shared.
-- **How:** Used `DataFrame.to_csv()` to save cleaned data and kept DataFrames in memory for further steps.
-
-### 5. Exploratory Data Analysis & Basic Visualisations
-- **What:** Calculated average sales per store and department, and plotted total weekly sales over time.
-- **Why:** To get an initial understanding of the data and spot any trends or anomalies.
-- **How:** Used `groupby()` for aggregation and `matplotlib`/`seaborn` for plotting line and bar charts.
-
-### 6. Advanced Visualisations
-- **What:** Created a correlation heatmap, pair plots, violin plots by store type, and interactive sales trends.
-- **Why:** These visualisations help uncover deeper relationships and present findings in an engaging way.
-- **How:** Used `seaborn` for static advanced plots and `plotly` for interactive charts.
-
-### 7. Documentation & Presentation
-- **What:** Documented each step of the ETL and analysis process, and summarised key findings.
-- **Why:** Good documentation ensures reproducibility and clear communication of insights.
-- **How:** Maintained this README, added comments in the code, and prepared a summary presentation with screenshots of key visualisations.
-
-### 8. Version Control & Project Management
-- **What:** Used GitHub for version control and a Kanban board for task management.
-- **Why:** To track progress, manage tasks, and ensure transparency.
-- **How:** Committed code regularly to GitHub and used GitHub Projects to organise user stories and milestones.
+- Identify sales trends and seasonal patterns
+- Assess the impact of holidays and promotional markdowns on sales
+- Compare sales performance across stores and departments
+- Provide actionable insights for retail managers to optimise promotions and inventory
 
 ---
 
-## How to Reproduce
+## Hypothesis and How to Validate
 
-1. Clone this repository.
-2. Install dependencies from `requirements.txt`.
-3. Place the raw data files in the `data/` directory.
-4. Open and run the Jupyter notebook step by step.
+**Hypotheses:**
+1. Sales increase significantly during holiday weeks.
+2. Promotional markdowns lead to higher sales, especially during holidays.
+3. Larger stores (by size/type) have higher average sales.
 
----
-
-## Key Findings
-
-- Sales tend to spike during holiday weeks, especially when promotional markdowns are applied.
-- Certain store types consistently outperform others in terms of weekly sales.
-- There is a strong correlation between markdown events and increased sales volume.
-- Some departments are more sensitive to promotions and holidays than others.
+**Validation:**
+- Use descriptive statistics, boxplots, and time series analysis to compare sales during holidays vs. non-holidays.
+- Analyse sales before and after markdown events.
+- Compare average sales by store type and size.
 
 ---
 
-## References
+## Project Plan
 
-- [Retail Sales Dataset on Kaggle](https://www.kaggle.com/datasets/manjeetsingh/retaildataset)
+- **Data Collection:** Downloaded and organised the dataset from Kaggle.
+- **Data Processing:** Cleaned missing values, converted data types, and engineered features (e.g., holiday flag).
+- **Analysis:** Performed exploratory data analysis and visualisation.
+- **Interpretation:** Summarised findings and mapped them to business requirements.
+- **Presentation:** Documented the process and results in a Jupyter notebook and this README.
+
+**Data Management:**  
+Data was kept in CSV format, loaded and processed with pandas, and all transformations were documented in the notebook.
+
+**Methodology Rationale:**  
+A combination of descriptive and visual analytics was chosen for clarity and accessibility to both technical and non-technical stakeholders.
 
 ---
 
-## Contact
+## Mapping Business Requirements to Data Visualisations
 
-For questions, contact [Midaso] at [midasobona@yahoo.com].
+| Business Requirement                        | Visualisation Type                | Rationale                                      |
+|----------------------------------------------|-----------------------------------|------------------------------------------------|
+| Identify sales trends                        | Line plot of weekly sales         | Shows seasonality and trends over time         |
+| Impact of holidays/markdowns                 | Boxplot, bar chart                | Compares sales distributions                   |
+| Compare store/department performance         | Bar chart, violin plot            | Highlights top/bottom performers               |
+| Correlation between features and sales       | Heatmap, pair plot                | Reveals relationships between variables        |
+
+---
+
+## Analysis Techniques Used
+
+- **Descriptive statistics** for summarising sales data
+- **Time series analysis** for trend detection
+- **Boxplots and violin plots** for distribution comparison
+- **Correlation heatmaps and pair plots** for feature relationships
+- **Interactive visualisations** using Plotly for deeper exploration
+
+**Limitations:**  
+- Data is limited to historical records and may not reflect future trends.
+- Some features may have missing or zero values, which could affect analysis.
+
+**Alternative Approaches:**  
+- Predictive modelling (not covered in this project)
+- More granular analysis by region or department
+
+**Use of Generative AI:**  
+- Used AI tools for ideation, code optimisation, and documentation drafting.
+
+---
+
+## Ethical Considerations
+
+- No personal or sensitive data is present in the dataset.
+- Analysed data for fairness and checked for potential bias in store types or regions.
+- All data used is publicly available and complies with Kaggle’s terms of use.
+
+---
+
+## Dashboard Design
+
+- **Overview Page:** Key metrics and sales trends
+- **Store Comparison:** Sales by store and type
+- **Holiday Impact:** Sales during holidays vs. non-holidays
+- **Markdown Analysis:** Effect of promotions on sales
+- **Interactivity:** Filters for date range, store, and department
+
+**Communication:**  
+Visualisations are designed with clear titles, labels, and tooltips to make insights accessible to both technical and non-technical audiences.
+
+---
+
+## Unfixed Bugs
+
+- No major unfixed bugs at this time.
+- Some minor display issues may occur with very large datasets in the dashboard.
+- Feedback from peers led to improvements in data cleaning and visualisation clarity.
+
+---
+
+## Development Roadmap
+
+- **Challenges:** Handling missing values, merging datasets, and ensuring visual clarity.
+- **Strategies:** Iterative cleaning, regular code reviews, and peer feedback.
+- **Next Steps:** Explore predictive modelling and deploy an interactive dashboard.
+
+---
+
+## Deployment
+
+- The project is not deployed as a web app, but all code and notebooks are available in this repository.
+- For large datasets, users should download data from Kaggle and place it in the `data/` folder as described above.
+
+---
+
+## Main Data Analysis Libraries
+
+- `pandas` for data manipulation
+- `numpy` for numerical operations
+- `matplotlib` and `seaborn` for static visualisations
+- `plotly` for interactive charts
+
+**Example:**
+```python
+import pandas as pd
+sales = pd.read_csv('data/sales_data.csv')
+```
+
+---
+
+## Credits
+
+**Content:**  
+- Dataset from [Kaggle](https://www.kaggle.com/datasets/manjeetsingh/retaildataset)
+- Code examples and visualisation ideas inspired by official documentation and open-source tutorials
+
+**Media:**  
+- CI logo from Code Institute
+
+**Acknowledgements:**  
+- Thanks to instructors, peers, and the Code Institute community for support and feedback.
+
+---
