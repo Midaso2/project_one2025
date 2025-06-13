@@ -1,75 +1,84 @@
-# ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+<img alt="CI logo" src="https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png">
 
-## Template Instructions
+# Data Analytics with AI: Python ETL and Visualisation
 
-Welcome,
+## Project Overview
 
-This is the Code Institute student template for the Data Analytics capstone project. We have preinstalled all of the tools you need to get started. It's perfectly okay to use this template as the basis for your project submissions. Click the `Use this template` button above to get started.
+This project analyses retail sales data from 45 stores across different regions. The aim is to identify sales trends, understand the impact of promotional markdowns and holidays, and compare store performance. The insights will help retail managers and analysts make data-driven decisions.
 
-You can safely delete the Template Instructions section of this README.md file and modify the remaining paragraphs for your own project. Please do read the Template Instructions at least once, though! It contains some important information about the IDE and the extensions we use.
+**Data Source:**  
+[Retail Sales Dataset on Kaggle](https://www.kaggle.com/datasets/manjeetsingh/retaildataset)
 
-## How to use this repo
+---
 
-1. Use this template to create your GitHub project repo. Click the Use this template button, then click Create a new repository.
+## Project Steps
 
-1. Copy the URL of your repository to your clipboard.
+### 1. Ideation & Project Proposal
+- **What:** The project focuses on analysing historical sales data to uncover trends and the effects of promotions and holidays.
+- **Why:** Retailers need to understand how events and markdowns affect sales to optimise inventory and marketing strategies.
+- **How:** I chose this project because it aligns with my interest in retail analytics and my goal to become a data analyst.
 
-1. In VS Code, select File - Open Folder.
+### 2. Data Extraction (ETL - Extract)
+- **What:** Loaded three CSV files: `stores_data.csv`, `features_data.csv`, and `sales_data.csv`.
+- **Why:** These files contain all the necessary information about stores, weekly sales, and additional features like markdowns and holidays.
+- **How:** Used `pandas.read_csv()` to import the datasets into DataFrames for analysis.
 
-1. Select your vscode-projects folder, then click the Select Folder button on Windows, or Open button on Mac.
+### 3. Data Cleaning & Transformation (ETL - Transform)
+- **What:** Checked for missing values, converted date columns, and ensured correct data types.
+- **Why:** Clean data is essential for accurate analysis and visualisation.
+- **How:** Filled missing values with zeros, converted `Date` columns to datetime, and created a holiday flag for analysis.
 
-1. From the top menu in VS Code, select Terminal > New Terminal to open the terminal.
+### 4. Data Loading (ETL - Load)
+- **What:** Stored the cleaned and transformed data in DataFrames and saved them as new CSV files.
+- **Why:** This ensures the data is ready for analysis and can be reused or shared.
+- **How:** Used `DataFrame.to_csv()` to save cleaned data and kept DataFrames in memory for further steps.
 
-1. In the terminal, type git clone followed by the URL of your GitHub repository. Then hit Enter. This command will download all the files in your GitHub repository into your vscode-projects folder.
+### 5. Exploratory Data Analysis & Basic Visualisations
+- **What:** Calculated average sales per store and department, and plotted total weekly sales over time.
+- **Why:** To get an initial understanding of the data and spot any trends or anomalies.
+- **How:** Used `groupby()` for aggregation and `matplotlib`/`seaborn` for plotting line and bar charts.
 
-1. In VS Code, select File > Open Folder again.
+### 6. Advanced Visualisations
+- **What:** Created a correlation heatmap, pair plots, violin plots by store type, and interactive sales trends.
+- **Why:** These visualisations help uncover deeper relationships and present findings in an engaging way.
+- **How:** Used `seaborn` for static advanced plots and `plotly` for interactive charts.
 
-1. This time, navigate to and select the folder for the project you just downloaded. Then, click Select Folder.
+### 7. Documentation & Presentation
+- **What:** Documented each step of the ETL and analysis process, and summarised key findings.
+- **Why:** Good documentation ensures reproducibility and clear communication of insights.
+- **How:** Maintained this README, added comments in the code, and prepared a summary presentation with screenshots of key visualisations.
 
-1. A virtual environment is necessary when working with Python projects to ensure each project's dependencies are kept separate from each other. You need to create your virtual environment, also called a venv, and then ensure that it is activated any time you return to your workspace.
-Click the gear icon in the lower left-hand corner of the screen to open the Manage menu and select Command Palette to open the VS Code command palette.
+### 8. Version Control & Project Management
+- **What:** Used GitHub for version control and a Kanban board for task management.
+- **Why:** To track progress, manage tasks, and ensure transparency.
+- **How:** Committed code regularly to GitHub and used GitHub Projects to organise user stories and milestones.
 
-1. In the command palette, type: create environment and select Python: Create Environment…
+---
 
-1. Choose Venv from the dropdown list.
+## How to Reproduce
 
-1. Choose the Python version you installed earlier. Currently, we recommend Python 3.12.8
+1. Clone this repository.
+2. Install dependencies from `requirements.txt`.
+3. Place the raw data files in the `data/` directory.
+4. Open and run the Jupyter notebook step by step.
 
-1. DO NOT click the box next to requirements.txt, as you need to do more steps before you can install your dependencies. Click OK.
+---
 
-1. You will see a .venv folder appear in the file explorer pane to show that the virtual environment has been created.
+## Key Findings
 
-1. Important: Please add the .venv to your .gitignore file
+- Sales tend to spike during holiday weeks, especially when promotional markdowns are applied.
+- Certain store types consistently outperform others in terms of weekly sales.
+- There is a strong correlation between markdown events and increased sales volume.
+- Some departments are more sensitive to promotions and holidays than others.
 
-1. Return to the terminal by clicking on the TERMINAL tab or click on the Terminal menu and choose New Terminal if no terminal is currently open.
+---
 
-1. In the terminal, use the command below to install your dependencies. This may take several minutes.
- `pip3 install -r requirements.txt`
+## References
 
-1. Open the jupyter_notebooks directory, and click on the notebook you want to open.
+- [Retail Sales Dataset on Kaggle](https://www.kaggle.com/datasets/manjeetsingh/retaildataset)
 
-1. Click the kernel button and choose Python Environments.
+---
 
-Note that the kernel says Python 3.12.2 as it inherits from the workspace, so it will be Python-3.12.2 as installed by our template. To confirm this, you can use `! python --version` in a notebook code cell.
+## Contact
 
-## Cloud IDE Reminders
-
-To log into the Heroku toolbelt CLI:
-
-1. Log in to your Heroku account and go to _Account Settings_ in the menu under your avatar.
-2. Scroll down to the _API Key_ and click _Reveal_
-3. Copy the key
-4. In the terminal, run `heroku_config`
-5. Paste in your API key when asked
-
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
-
-* Set the runtime.txt Python version to a [Heroku-22](https://devcenter.heroku.com/articles/python-support#supported-runtimes) stack currently supported version.
-* The project was deployed to Heroku using the following steps.
-
-1. Log in to Heroku and create an App
-2. At the Deploy tab, select GitHub as the deployment method.
-3. Select your repository name and click Search. Once it is found, click Connect.
-4. Select the branch you want to deploy, then click Deploy Branch.
-5. The deployment process should happen smoothly if all deployment files are fully functional. Click now the button Open App on the top of the page to access your App.
-6. If the slug size is too large then add large files not required for the app to the .slugignore file.
+For questions, contact [Midaso] at [midasobona@yahoo.com].
