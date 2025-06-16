@@ -1,7 +1,7 @@
 
 # Retail Sales Data Analysis
 <img alt="CI logo" src="https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png">
----
+
 This project delivers an end-to-end ETL (Extract, Transform, Load), analysis, and visualization pipeline for a US retail sales dataset. The workflow includes robust data cleaning, insightful exploratory analysis, effective feature engineering, predictive modeling, and both static and interactive visualizations. The goal is to uncover actionable insights for retail decision-making and to demonstrate best practices in reproducible data analytics.
 
 ## Dataset Content
